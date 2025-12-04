@@ -11,4 +11,3 @@ import { TemaService } from './services/tema.service';
   exports: [TemaService],
 })
 export class TemaModule {}
-

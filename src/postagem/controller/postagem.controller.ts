@@ -41,7 +41,7 @@ export class PostagemController {
     return this.postagemService.create(Postagem);
   }
 
-  @Put() //Ver com o yuri se essa parte e aqui ou na postagem.service
+  @Put()
   @HttpCode(HttpStatus.OK)
   update(@Body() postagem: Postagem): Promise<Postagem> {
     return this.postagemService.update(postagem);
