@@ -7,6 +7,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { Tema } from '../../tema/entities/tema.entity';
+import { Usuario } from '../../usuario/entities/usuario.entity';
 
 @Entity({ name: 'tb_postagens' })
 export class Postagem {
@@ -28,4 +29,10 @@ export class Postagem {
     onDelete: 'CASCADE',
   })
   tema: Tema;
+
+  // Indica o lado MUITO do relacionamento, indicando que esse campo se conecta ao campo Postagem da Model Usuario
+  @ManyToOne(() => Usuario, (usuario) => usuario.postagem, {
+      onDelete: "CASCADE"
+  })
+  usuario: Usuario
 }
