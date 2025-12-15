@@ -11,12 +11,12 @@ export class TemaService {
   ) {}
 
   async findAll(): Promise<Tema[]> {
-    return await this.temaRepository.find({ relations: { postagens: true } });
+    return await this.temaRepository.find({ relations: { postagem: true } });
   }
   async findById(id: number): Promise<Tema> {
     const tema = await this.temaRepository.findOne({
       where: { id },
-      relations: { postagens: true },
+      relations: { postagem: true },
     });
 
     if (!tema)
@@ -28,7 +28,7 @@ export class TemaService {
   async findByDescricao(descricao: string): Promise<Tema[]> {
     return await this.temaRepository.find({
       where: { descricao: ILike(`%${descricao}%`) },
-      relations: { postagens: true },
+      relations: { postagem: true },
     });
   }
 
